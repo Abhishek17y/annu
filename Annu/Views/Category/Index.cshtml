@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Annu.Models.Category>
+
+<h2>Category Table</h2>
+<br />
+<a asp-action="Create" asp-controller="Category" class="btn btn-outline-warning">Create</a>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Action</th>
+
+    </tr>
+    @foreach (var prod in Model)
+    {
+        <tr>
+            <td>@prod.ID</td>
+            <td><img src="@prod.Image" height="60" width="60" /></td>
+            @*<td>@prod.IsActive</td>*@
+            <td>@prod.Name</td>
+            <td>
+                <a asp-action="CategoryDetail" asp-route-id="prod.Id" class="btn btn-success">View</a>
+                <a asp-page="" asp-route-ID=prId class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+
+    }
+</table>
